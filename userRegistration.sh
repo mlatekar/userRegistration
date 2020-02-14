@@ -1,3 +1,4 @@
+echo "Welcome to User Registration"
 shopt -s extglob
 echo "Read user name"
 read userName
