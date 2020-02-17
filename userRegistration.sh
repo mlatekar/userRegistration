@@ -57,13 +57,23 @@ fi
 }
 function validPasswordWithNumber
 {
-if [[ ${#enterPasswordNumber} -ge 8 && "$enterPasswordNumber" == *[[:lower:]]* && "$enterPasswordNumber" == *[[:upper:]]* && *[0-9]* ]]
+if [[ ${#enterPasswordNumber} -ge 8 && "$enterPasswordNumber" == *[[:lower:]]* && "$enterPasswordNumber" == *[[:upper:]]* && "$enterPasswordNumber" == *[0-9]* ]]
 then
    echo "Valid password"
 else
    echo "Invalid password"
 fi
 }
+function validPasswordWithSpecialCharacter
+{
+if [[ ${#enterPasswordSpecial} -ge 8 && "$enterPasswordSpecial " == *[[:lower:]]* && "$enterPasswordSpecial" == *[[:upper:]]* && "$enterPasswordSpecial" == *[0-9]* && "$enterPasswordSpecial" == *['!'@#\$%\&*_-]* ]]
+then
+   echo "Valid password"
+else
+   echo "Invalid password"
+fi
+}
+
 read -p  "Read User name & last name : " userName userLastName 
 validName
 read -p "Enter you Email address: " userEmail
@@ -76,4 +86,5 @@ read -p "Enter your Password : " enterPasswordCapital
 validPasswordCapital
 read -p "Enter your Password : " enterPasswordNumber
 validPasswordWithNumber
-
+read -p "Enter your Password : " enterPasswordSpecial
+validPasswordWithSpecialCharacter
