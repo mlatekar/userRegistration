@@ -55,7 +55,15 @@ else
    echo "Invalid password"
 fi
 }
-
+function validPasswordWithNumber
+{
+if [[ ${#enterPasswordNumber} -ge 8 && "$enterPasswordNumber" == *[[:lower:]]* && "$enterPasswordNumber" == *[[:upper:]]* && *[0-9]* ]]
+then
+   echo "Valid password"
+else
+   echo "Invalid password"
+fi
+}
 read -p  "Read User name & last name : " userName userLastName 
 validName
 read -p "Enter you Email address: " userEmail
@@ -66,4 +74,6 @@ read -p "Enter your Password : " enterPassword
 validPassword
 read -p "Enter your Password : " enterPasswordCapital
 validPasswordCapital
+read -p "Enter your Password : " enterPasswordNumber
+validPasswordWithNumber
 
