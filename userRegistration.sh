@@ -7,6 +7,7 @@ lastName="^[A-Z]{1}[a-zA-Z]{3,}$"
 email="^[a-zA-Z]{3,}[.]*{1}[a-zA-Z]*{3,}[@]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,3}[.]*{1}[a-zA-Z]*{2,3}$"
 mobileNumber="^[0-9]{2}[[:space:]][0-9]{10}$"
 password="^[a-zA-Z]{8}$"
+
 function validName()
 {
 if [[ $userName =~ $name && $userLastName =~ $lastName ]]
@@ -45,6 +46,16 @@ else
    echo "Invalid password"
 fi
 }
+function validPasswordCapital
+{
+if [[ ${#enterPasswordCapital} -ge 8 && "$enterPasswordCapital" == *[[:lower:]]* && "$enterPasswordCapital" == *[[:upper:]]* ]]
+then
+   echo "Valid password"
+else
+   echo "Invalid password"
+fi
+}
+
 read -p  "Read User name & last name : " userName userLastName 
 validName
 read -p "Enter you Email address: " userEmail
@@ -53,3 +64,6 @@ read -p "Enter country code with mobile number : " countryCodeMobileNumber
 validMobileNumber
 read -p "Enter your Password : " enterPassword
 validPassword
+read -p "Enter your Password : " enterPasswordCapital
+validPasswordCapital
+
